@@ -239,7 +239,7 @@ if 'num' in data.columns:
 tod = 0
 mon = findmonday(data)
 # use = str(input("是否使用已有权重(y/n)"))
-use = 'y'
+use = 'n'
 # datanum = len(data)-mon-8
 datanum = 20
 ep = 100

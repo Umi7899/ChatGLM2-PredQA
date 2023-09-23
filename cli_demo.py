@@ -40,7 +40,7 @@ def main():
     # 若为第一轮对话，则加入引导prompt
     cnt = 0 #记录轮次
     while True:
-        query = input("\n用户：")
+        query = input("\n用户：\n")
         if query.strip() == "stop":
             break
         if query.strip() == "clear":
@@ -49,9 +49,13 @@ def main():
             print("欢迎使用预测模型！输入内容即可进行对话，clear 清空对话历史，stop 终止程序")
             cnt = 0
             continue
-        new_query = """现在，请你扮演彩票预测模型。已知根据AI模型在历史开奖数据上的分析，预测得到本周可能的开奖结果为{pred}。
-        请你根据开奖结果回答用户的问题，用户的问题是{question}"""
+        new_query = """现在，请你扮演游戏预测模型。已知根据AI模型在历史开奖数据上的分析，预测得到本周游戏“万能七码”可能的开奖结果如下：
+
+{pred}
+
+请你根据开奖结果回答用户的问题，用户的问题是：{question}"""
         new_query = new_query.replace("{question}", query).replace("{pred}", prediction)
+        print(new_query)
         print("\nChatGLM：", end="")
         current_length = 0
 
